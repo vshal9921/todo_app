@@ -76,9 +76,11 @@ class _HomePageState extends State<HomePage> {
         itemCount: db.todoList.length,
         itemBuilder: (BuildContext context, int index) {
           return ItemTodo(
-              isChecked: db.todoList[index][1],
-              onCheckChanged: (value) => checkBoxChange(value, index),
-              todoTitle: db.todoList[index][0]);
+            isChecked: db.todoList[index][1],
+            onCheckChanged: (value) => checkBoxChange(value, index),
+            todoTitle: db.todoList[index][0],
+            onPressed: (context) => deleteTask(index),
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(
